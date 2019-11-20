@@ -30,3 +30,7 @@ RUN wget http://mirrors.sonic.net/apache/maven/maven-3/3.5.3/binaries/apache-mav
 # install docker-compose
 RUN curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
+    
+# install python3
+RUN apt-get install python3.4
+COPY /usr/bin/python3 /usr/bin/python
