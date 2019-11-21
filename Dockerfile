@@ -27,12 +27,12 @@ RUN apt-get -q update &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 # install git, curl, wget, maven
-RUN apt-get update
-RUN apt-get install -y git curl wget maven
+RUN apt-get -q update &&\
+    apt-get install -y git curl wget maven
     
 # install python3
-RUN apt-get install python3.4
-COPY /usr/bin/python3 /usr/bin/python
+RUN apt-get install python3
+#COPY /usr/bin/python3 /usr/bin/python
     
 # install docker-compose
 RUN curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose \
