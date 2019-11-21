@@ -26,12 +26,9 @@ RUN apt-get -q update &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openjdk-8-jre-headless &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
-# install git, curl, wget, maven
+# install git, curl, wget, maven, python3
 RUN apt-get -q update &&\
-    apt-get install -y git curl wget maven
-    
-# install python3
-RUN apt-get install python3
+    apt-get install -y git curl wget maven python3
 #COPY /usr/bin/python3 /usr/bin/python
     
 # install docker-compose
